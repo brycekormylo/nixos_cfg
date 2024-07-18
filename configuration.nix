@@ -33,7 +33,8 @@
 
   services.xserver = {
     enable = true;
-    autorun = false;
+    videoDrivers = ["nvidia"];
+    autorun = true;
     xkb.layout = "us";
     xkb.variant = "";
     displayManager.gdm.enable = true;
@@ -44,7 +45,10 @@
 
   hardware = {
     opengl.enable = true;
-    nvidia.modesetting.enable = true;
+    nvidia = {
+      modesetting.enable = true;
+      nvidiaSettings = true;
+    };
     bluetooth = {
       enable = true;
       powerOnBoot = true;
@@ -95,6 +99,18 @@
   systemd.services."autovt@tty1".enable = false;
 
   environment.systemPackages = with pkgs; [
+    firefox
+    vscode
+    vlc
+    inkscape
+    ungoogled-chromium
+    libreoffice
+    zed-editor
+    dolphin-emu
+    clipgrab
+    qbittorrent
+    obsidian
+
     brightnessctl
     bluez
     libdbusmenu-gtk3
@@ -103,10 +119,21 @@
     xfce.thunar
     pavucontrol
     libnotify
+    lshw
+    imgp
   
     _7zz
     unzip
     ripgrep
+    xdragon
+    croc
+    gotop
+
+    zig
+    libgcc
+    universal-ctags
+    bun
+    nodejs_22
 
     hyprland
     hyprlang
