@@ -110,6 +110,7 @@
     clipgrab
     qbittorrent
     obsidian
+    kitty
 
     brightnessctl
     bluez
